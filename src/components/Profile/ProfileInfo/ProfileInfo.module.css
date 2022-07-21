@@ -1,0 +1,11 @@
+.image {
+  background: red url('../../../../public/bgr-image.jpg') no-repeat;
+  background-size: 100% 100%;
+  height: 300px;
+  width: 100%;
+}
+
+.description {
+  padding: 10px;
+  background-color: antiquewhite;
+}
