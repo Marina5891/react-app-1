@@ -1,11 +1,13 @@
 .dialogs {
   display: grid;
   grid-template-columns: 2fr 10fr;
+  margin: 20px 0 20px 20px;
+  box-shadow: 0 0 5px #eff3f7;
+  background-color: #fff;
 }
 
 .dialogsItems {
   padding: 10px;
-  background-color: antiquewhite;
 }
 
 .dialog {
@@ -17,13 +19,13 @@
 }
 
 .active {
-  background-color: darkred;
+  background-color: #ff3c6b;
   color: aliceblue;
 }
 
 .messagesItems {
   padding: 10px;
-  background-color: darkseagreen;
+  background-color:#fff;
 }
 
 .message {

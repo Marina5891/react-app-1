@@ -1,23 +1,30 @@
 .navbar {
   grid-area: n;
-  background-color: hotpink;
+  background-color: transparent;
   height: 700px;
-  padding: 40px 0 0 20px;
+  padding: 10px 25px;
   font-size: 20px;
+  border-right: 2px solid #adaaad;
+}
+
+.navbarItems {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #eff3f7;
+  padding: 20px;
 }
 
 .navbarItem {
-  border-bottom: 2px solid darkred;
   margin-bottom: 10px;
   padding: 5px;
 }
 
 .navbarItem a {
-  color: aliceblue;
+  color: #adaaad;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
 
 .navbarItem a.active {
-  color: darkred;
+  color: #ff3c6b;
 }
