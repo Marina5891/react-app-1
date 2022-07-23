@@ -1,0 +1,18 @@
+.dialog {
+  display: block;
+  padding: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.active {
+  background-color: #fdeef1;
+}
+
+.active:first-child {
+  border-top-left-radius: 15px;
+}
+
+.active:last-child {
+  border-bottom-left-radius: 15px;
+}

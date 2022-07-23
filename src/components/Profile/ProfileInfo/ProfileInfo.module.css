@@ -1,9 +1,10 @@
 .profileInfo {
   background-color: #fff;
-  max-width: 100%;
+  max-width: 1000px;
   border-radius: 15px;
-  box-shadow: 0 0 5px #eff3f7;
+  box-shadow: 0 0 5px #e6e8ea;
   padding: 20px;
+  margin: 0 auto;
 }
 
 .image {

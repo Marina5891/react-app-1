@@ -1,11 +1,11 @@
 .header {
   background-color: #fff;
-  box-shadow: 0 0 5px #eff3f7;
+  box-shadow: 0 0 5px #e6e8ea;
   grid-area: h;
 }
 
 .headerContainer {
-  width: 1400px;
+  width: 1200px;
   height: 100%;
   margin: 0 auto;
   display: flex;

@@ -15,7 +15,7 @@ export const Navbar = () => {
               Profile</NavLink>
           </li>
           <li className={styles.navbarItem}>
-            <NavLink to='/dialogs' className={setActive}>Messages</NavLink>
+            <NavLink to='/chat' className={setActive}>Messages</NavLink>
           </li>
           <li className={styles.navbarItem}><a>News</a></li>
           <li className={styles.navbarItem}><a>Music</a></li>

@@ -16,9 +16,9 @@
 
 .createPost button {
   display: block;
-  background-color: aqua;
-  color: darkblue;
-  text-transform: uppercase;
+  background-color: #ff3c6b;
+  color: #fff;
+  font-size: 1rem;
   font-weight: bold;
   padding: 10px 10px;
   border: none;

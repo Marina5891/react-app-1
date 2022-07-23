@@ -1,0 +1,13 @@
+.chat {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  background-color: #fff;
+  box-shadow: 0 0 5px #e6e8ea;
+  border-radius: 15px;
+}
+
+.chatItems {
+  border-right: 1px solid #e5e7eb;
+}
+
+/* .messagesItems {} */
