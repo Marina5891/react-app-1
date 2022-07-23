@@ -3,33 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-
-const data = {
-  dialogsData: [
-    { id: 1, name: 'Marina' },
-    { id: 2, name: 'Sveta' },
-    { id: 3, name: 'Aigul' },
-    { id: 4, name: 'Katia' },
-    { id: 5, name: 'Albina' }
-  ],
-  messagesData: [
-    { id: 1, message: 'Hi' },
-    { id: 2, message: 'How are you?' },
-    { id: 3, message: 'Hello' },
-    { id: 4, message: 'Ku-ku' }
-  ],
-  postsData: [
-    { id: 1, post: 'Hi! How are you?', like: 3 },
-    { id: 2, post: 'It is my first post', like: 2 },
-    { id: 3, post: 'Ha-ha-ha', like: 10 }
-  ]
-}
+import state from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App data={data} />
+      <App state={state} />
     </BrowserRouter>
   </React.StrictMode>
 );

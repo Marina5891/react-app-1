@@ -11,12 +11,11 @@
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 0 5px #e6e8ea;
-  padding: 20px 0;
 }
 
 .navbarItem a {
   display: block;
-  padding: 10px 0 10px 40px;
+  padding: 15px 0 15px 40px;
   color: #919191;
   font-size: 1.5rem;
   font-weight: 500;
@@ -28,4 +27,12 @@
   color: #ff3c6b;
   padding-left: 30px;
   border-left: 10px solid #ff3c6b;
+}
+
+.navbarItem:first-child a.active {
+  border-top-left-radius: 15px;
+}
+
+.navbarItem:last-child a.active {
+  border-bottom-left-radius: 15px;
 }

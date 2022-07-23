@@ -3,7 +3,7 @@ import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 import { MyPosts } from './MyPosts/MyPosts';
 import styles from './Profile.module.css';
 
-export const Profile = ({ postsData }) => {
+export const Profile = ({ state: { postsData } }) => {
   return (
     <div className={styles.content}>
       <ProfileInfo />
