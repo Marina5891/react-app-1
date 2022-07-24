@@ -1,5 +1,6 @@
 import React from 'react';
 import { Messages } from './Messages/Messages';
+import { CreateMessage } from './CreateMessage/CreateMessage';
 import { Dialogs } from './Dialogs/Dialogs';
 import styles from './Chat.module.css';
 
@@ -11,6 +12,7 @@ export const Chat = ({ state: { dialogsData, messagesData } }) => {
       </div>
       <div className={styles.messagesItems}>
         <Messages messagesData={messagesData} />
+        <CreateMessage />
       </div>
     </div>
   )

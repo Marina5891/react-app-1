@@ -1,0 +1,15 @@
+.sidebar {
+  grid-area: n;
+  background-color: transparent;
+  height: 700px;
+  padding: 0 20px;
+  font-size: 20px;
+  border-right: 2px solid #adaaad;
+}
+
+.sidebarItem {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #e6e8ea;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,25 @@
+.userInfo {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.userInfoItem {
+  width: 52px;
+  height: 52px;
+  background-color: #fff;
+  border: 2px solid #ff3c6b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.userInfoItem img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}

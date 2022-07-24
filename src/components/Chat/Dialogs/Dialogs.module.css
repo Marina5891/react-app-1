@@ -1,8 +1,27 @@
 .dialog {
-  display: block;
-  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
   font-weight: 700;
   color: #1f2937;
+}
+
+.dialog img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.dialog h4 {
+  margin-bottom: 5px;
+}
+
+.dialog p {
+  color: #666;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .active {

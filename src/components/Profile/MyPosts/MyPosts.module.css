@@ -1,26 +1,8 @@
-.posts {
-  padding: 10px;
-}
-
-.createPost {
-  margin-bottom: 10px;
+.postsItem {
   background-color: #fff;
-}
-
-.createPost textarea {
-  display: block;
-  margin-bottom: 10px;
-  width: 500px;
-  min-height: 50px;
-}
-
-.createPost button {
-  display: block;
-  background-color: #ff3c6b;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 10px 10px;
-  border: none;
-  border-radius: 5px;
+  max-width: 1000px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #e6e8ea;
+  padding: 20px;
+  margin: 0 auto 20px;
 }

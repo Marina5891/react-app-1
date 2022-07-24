@@ -10,4 +10,8 @@
   border-right: 1px solid #e5e7eb;
 }
 
-/* .messagesItems {} */
+.messagesItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
