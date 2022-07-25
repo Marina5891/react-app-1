@@ -1,10 +1,13 @@
+import { rerenderedEntireTree } from "../render";
+
 const state = {
   profilePage: {
     postsData: [
       { id: 1, post: 'Hi! How are you?', like: 3 },
       { id: 2, post: 'It is my first post', like: 2 },
       { id: 3, post: 'Ha-ha-ha', like: 10 }
-    ]
+    ],
+    newPostText: ''
   },
   chatPage: {
     dialogsData: [
@@ -30,14 +33,30 @@ const state = {
   ]
 }
 
-export const handleAddPost = (post) => {
-  let lastPost = state.profilePage.postsData;
+export const addPost = () => {
+  let posts = state.profilePage.postsData;
   let newPost = {
-    id: lastPost[lastPost.length - 1].id + 1,
-    post: post,
+    id: posts[posts.length - 1].id + 1,
+    post: state.profilePage.newPostText,
     like: 0
   }
-  lastPost.push(newPost);
+  posts.push(newPost);
+  rerenderedEntireTree(state);
+}
+
+export const addMessage = (message) => {
+  let messages = state.chatPage.messagesData;
+  let newMessage = {
+    id: messages[messages.length - 1].id + 1,
+    message: message
+  }
+  messages.push(newMessage);
+  rerenderedEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderedEntireTree(state);
 }
 
 export default state;

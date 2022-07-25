@@ -6,9 +6,9 @@
   padding: 15px;
 }
 
-input {
-  display: inline-block;
-  width: 80%;
+.createMessage input {
+  display: block;
+  width: 70%;
   min-height: 50px;
   padding: 15px;
   border: none;
@@ -16,13 +16,13 @@ input {
   font-family: 'Montserrat', sans-serif;
 }
 
-input:focus {
+.createMessage input:focus {
   outline: none;
   color: #1f2937;
   font-weight: 500;
 }
 
-button {
+.createMessage button {
   display: block;
   background-color: #ff3c6b;
   color: #fff;

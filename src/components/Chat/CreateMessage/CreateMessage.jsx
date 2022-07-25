@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './CreateMessage.module.css';
 
-export const CreateMessage = () => {
+export const CreateMessage = ({handleAddMessage}) => {
 
   const [inputValue, setInputValue] = useState('');
 
@@ -10,7 +10,7 @@ export const CreateMessage = () => {
   }
 
   const handleClick = () => {
-    alert(inputValue)
+    handleAddMessage(inputValue)
   }
 
   return (
