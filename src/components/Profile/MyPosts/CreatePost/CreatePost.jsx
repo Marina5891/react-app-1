@@ -1,27 +1,27 @@
-import React, { useState, createRef } from 'react';
+import React, { createRef } from 'react';
 import styles from './CreatePost.module.css';
 
-export const CreatePost = ({ handleAddPost }) => {
-  //const [textAreaValue, setTextAreaValue] = useState("");
+export const CreatePost = ({ addPost, newPostText, updateNewPostText }) => {
 
-  const newPostElement = createRef();
+  const textAreaValue = createRef();
 
-  const addNewPost = () => {
-    let text = newPostElement.current.value;
+  const createNewPost = () => {
+    addPost();
   }
 
-  const handleChange = (event) => {
-    setTextAreaValue(event.target.value);
-  }
-
-  const handleClick = () => {
-    handleAddPost(textAreaValue)
+  const onPostChange = () => {
+    let text = textAreaValue.current.value;
+    updateNewPostText(text);
   }
 
   return (
     <div className={styles.createPost}>
-      <textarea onChange={handleChange} value={textAreaValue} placeholder="What's on your mind?" ref={newPostElement} />
-      <button onClick={handleClick}>Create post</button>
+      <textarea
+        placeholder="What's on your mind?"
+        ref={textAreaValue}
+        value={newPostText}
+        onChange={onPostChange} />
+      <button onClick={createNewPost}>Create post</button>
     </div>
   )
 }

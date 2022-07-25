@@ -1,4 +1,4 @@
-import { rerenderedEntireTree } from "../render";
+import { rerenderEntireTree } from "../render";
 
 const state = {
   profilePage: {
@@ -22,7 +22,8 @@ const state = {
       { id: 2, message: 'How are you?' },
       { id: 3, message: 'Hello' },
       { id: 4, message: 'Ku-ku' }
-    ]
+    ],
+    newMessageText: ''
   },
   users: [
     { id: 1, name: 'Marina', avatar: 'https://i.yapx.cc/Ra8I0.jpg', email: 'zags1@gmail.com' },
@@ -33,6 +34,8 @@ const state = {
   ]
 }
 
+window.state = state;
+
 export const addPost = () => {
   let posts = state.profilePage.postsData;
   let newPost = {
@@ -41,22 +44,29 @@ export const addPost = () => {
     like: 0
   }
   posts.push(newPost);
-  rerenderedEntireTree(state);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state);
 }
 
-export const addMessage = (message) => {
+export const addMessage = () => {
   let messages = state.chatPage.messagesData;
   let newMessage = {
     id: messages[messages.length - 1].id + 1,
-    message: message
+    message: state.chatPage.newMessageText
   }
   messages.push(newMessage);
-  rerenderedEntireTree(state);
+  state.chatPage.newMessageText = '';
+  rerenderEntireTree(state);
 }
 
 export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
-  rerenderedEntireTree(state);
+  rerenderEntireTree(state);
+}
+
+export const updateNewMessageText = (newText) => {
+  state.chatPage.newMessageText = newText;
+  rerenderEntireTree(state);
 }
 
 export default state;

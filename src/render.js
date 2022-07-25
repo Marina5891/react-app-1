@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { addPost, addMessage, updateNewPostText } from './redux/state';
+import { addPost, addMessage, updateNewPostText, updateNewMessageText } from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let rerenderedEntireTree = (state) => {
+
+export let rerenderEntireTree = (state) => {
     root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <App state={state} addPost={addPost} addMessage={addMessage} updatenewPostText={updateNewPostText} />
-        </BrowserRouter>
-    </React.StrictMode>
-   );     
+        <React.StrictMode>
+            <BrowserRouter>
+                <App
+                    state={state}
+                    addPost={addPost}
+                    addMessage={addMessage}
+                    updateNewMessageText={updateNewMessageText}
+                    updateNewPostText={updateNewPostText} />
+            </BrowserRouter>
+        </React.StrictMode>
+    );
 }
 

@@ -1,7 +1,8 @@
 import state from './redux/state';
-import { rerenderedEntireTree } from './render';
+import { rerenderEntireTree } from './render';
+import './index.css';
 
-rerenderedEntireTree(state);
+rerenderEntireTree(state);
 
 /* const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

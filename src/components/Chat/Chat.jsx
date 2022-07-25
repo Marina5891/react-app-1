@@ -4,7 +4,8 @@ import { CreateMessage } from './CreateMessage/CreateMessage';
 import { Dialogs } from './Dialogs/Dialogs';
 import styles from './Chat.module.css';
 
-export const Chat = ({ state: { dialogsData, messagesData }, handleAddMessage }) => {
+export const Chat = ({ chatPage: { dialogsData, messagesData, newMessageText }, addMessage, updateNewMessageText }) => {
+
   return (
     <div className={styles.chat}>
       <div className={styles.chatItems}>
@@ -12,7 +13,10 @@ export const Chat = ({ state: { dialogsData, messagesData }, handleAddMessage })
       </div>
       <div className={styles.messagesItems}>
         <Messages messagesData={messagesData} />
-        <CreateMessage handleAddMessage={handleAddMessage}/>
+        <CreateMessage
+          addMessage={addMessage}
+          updateNewMessageText={updateNewMessageText}
+          newMessageText={newMessageText} />
       </div>
     </div>
   )
