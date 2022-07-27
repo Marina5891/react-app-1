@@ -1,17 +1,17 @@
 import React, { createRef } from 'react';
 import styles from './CreatePost.module.css';
 
-export const CreatePost = ({ store /* addPost, newPostText, updateNewPostText */ }) => {
+export const CreatePost = ({ addPost, newPostText, updateNewPostText }) => {
 
   const textAreaValue = createRef();
 
   const createNewPost = () => {
-    store.addPost();
+    addPost();
   }
 
   const onPostChange = () => {
     let text = textAreaValue.current.value;
-    store.updateNewPostText(text);
+    updateNewPostText(text);
   }
 
   return (
@@ -19,7 +19,7 @@ export const CreatePost = ({ store /* addPost, newPostText, updateNewPostText */
       <textarea
         placeholder="What's on your mind?"
         ref={textAreaValue}
-        value={store.state.profilePage.newPostText}
+        value={newPostText}
         onChange={onPostChange} />
       <button onClick={createNewPost}>Create post</button>
     </div>

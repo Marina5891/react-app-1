@@ -4,9 +4,9 @@ import styles from './Dialogs.module.css';
 
 const setActive = ({ isActive }) => (isActive ? `${styles.dialog} ${styles.active}` : `${styles.dialog}`);
 
-export const Dialogs = ({ /* dialogsData */store }) => {
+export const Dialogs = ({ dialogsData }) => {
 
-  const dialogs = store.state.chatPage.dialogsData.map(data =>
+  const dialogs = dialogsData.map(data =>
     <NavLink to={`/chat/${data.id}`} className={setActive} key={data.id}>
       <div>
         <img src={data.avatar} />
