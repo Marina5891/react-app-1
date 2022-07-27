@@ -5,26 +5,29 @@ import { Chat } from './components/Chat/Chat';
 import { Profile } from './components/Profile/Profile';
 import './App.css';
 
-function App({ state, addPost, addMessage, updateNewPostText, updateNewMessageText }) {
+function App({ store /* state, addPost, addMessage, updateNewPostText, updateNewMessageText */ }) {
+  let state = store.state;
 
   return (
     <div className='wrapper'>
       <Header />
       <Sidebar state={state.users} />
-      <div className='wrapper__content'>
+      <div className='wrapperContent'>
         <Routes>
           <Route
             path='/profile'
             element={<Profile
-              profilePage={state.profilePage}
+              store={store}
+              /* profilePage={state.profilePage}
               addPost={addPost}
-              updateNewPostText={updateNewPostText} />} />
+              updateNewPostText={updateNewPostText} */ />} />
           <Route
             path='/chat/*'
             element={<Chat
-              chatPage={state.chatPage}
+              store={store}
+              /* chatPage={state.chatPage}
               addMessage={addMessage}
-              updateNewMessageText={updateNewMessageText} />} />
+              updateNewMessageText={updateNewMessageText} */ />} />
         </Routes>
       </div>
     </div>

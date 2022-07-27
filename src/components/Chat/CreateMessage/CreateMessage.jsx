@@ -1,17 +1,17 @@
 import React, { createRef } from 'react';
 import styles from './CreateMessage.module.css';
 
-export const CreateMessage = ({ addMessage, newMessageText, updateNewMessageText }) => {
+export const CreateMessage = ({ store/* addMessage, newMessageText, updateNewMessageText */ }) => {
 
   const textInputValue = createRef();
 
   const createNewMessage = () => {
-    addMessage();
+    store.addMessage();
   }
 
   const onMessageChange = () => {
     let text = textInputValue.current.value;
-    updateNewMessageText(text);
+    store.updateNewMessageText(text);
   }
 
   return (
@@ -19,7 +19,7 @@ export const CreateMessage = ({ addMessage, newMessageText, updateNewMessageText
       <input
         placeholder='Your message...'
         ref={textInputValue}
-        value={newMessageText}
+        value={store.state.chatPage.newMessageText}
         onChange={onMessageChange} />
       <button onClick={createNewMessage}>Send</button>
     </div>

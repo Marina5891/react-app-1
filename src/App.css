@@ -8,7 +8,7 @@
   gap: 20px;
 }
 
-.wrapper__content {
+.wrapperContent {
   grid-area: c;
   background-color: #f0f2f5;
   padding-right: 20px;
