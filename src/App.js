@@ -5,7 +5,7 @@ import { Chat } from './components/Chat/Chat';
 import { Profile } from './components/Profile/Profile';
 import './App.css';
 
-function App({ state, addPost, addMessage, updateNewPostText, updateNewMessageText }) {
+function App({ dispatch, state }) {
 
   return (
     <div className='wrapper'>
@@ -16,17 +16,13 @@ function App({ state, addPost, addMessage, updateNewPostText, updateNewMessageTe
           <Route
             path='/profile'
             element={<Profile
-              state={state}
-              profilePage={state.profilePage}
-              addPost={addPost}
-              updateNewPostText={updateNewPostText} />} />
+              dispatch={dispatch}
+              profilePage={state.profilePage} />} />
           <Route
             path='/chat/*'
             element={<Chat
-              state={state}
-              chatPage={state.chatPage}
-              addMessage={addMessage}
-              updateNewMessageText={updateNewMessageText} />} />
+              dispatch={dispatch}
+              chatPage={state.chatPage}/>} />
         </Routes>
       </div>
     </div>

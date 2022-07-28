@@ -1,17 +1,17 @@
 import React, { createRef } from 'react';
 import styles from './CreateMessage.module.css';
 
-export const CreateMessage = ({ addMessage, newMessageText, updateNewMessageText }) => {
+export const CreateMessage = ({ newMessageText, dispatch }) => {
 
   const textInputValue = createRef();
 
   const createNewMessage = () => {
-    addMessage();
+    dispatch({type: 'ADD-MESSAGE'})
   }
 
   const onMessageChange = () => {
     let text = textInputValue.current.value;
-    updateNewMessageText(text);
+    dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text})
   }
 
   return (

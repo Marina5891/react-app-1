@@ -1,17 +1,17 @@
 import React, { createRef } from 'react';
 import styles from './CreatePost.module.css';
 
-export const CreatePost = ({ addPost, newPostText, updateNewPostText }) => {
+export const CreatePost = ({ newPostText, dispatch }) => {
 
   const textAreaValue = createRef();
 
   const createNewPost = () => {
-    addPost();
+    dispatch({type: 'ADD-POST'});
   }
 
   const onPostChange = () => {
     let text = textAreaValue.current.value;
-    updateNewPostText(text);
+    dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
   }
 
   return (

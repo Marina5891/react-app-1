@@ -4,7 +4,7 @@ import { CreateMessage } from './CreateMessage/CreateMessage';
 import { Dialogs } from './Dialogs/Dialogs';
 import styles from './Chat.module.css';
 
-export const Chat = ({ chatPage: { dialogsData, messagesData, newMessageText }, addMessage, updateNewMessageText }) => {
+export const Chat = ({ chatPage: { dialogsData, messagesData, newMessageText }, dispatch }) => {
 
   return (
     <div className={styles.chat}>
@@ -14,8 +14,7 @@ export const Chat = ({ chatPage: { dialogsData, messagesData, newMessageText }, 
       <div className={styles.messagesItems}>
         <Messages messagesData={messagesData} />
         <CreateMessage
-          addMessage={addMessage}
-          updateNewMessageText={updateNewMessageText}
+          dispatch={dispatch}
           newMessageText={newMessageText} />
       </div>
     </div>

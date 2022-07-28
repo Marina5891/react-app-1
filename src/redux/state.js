@@ -41,41 +41,37 @@ let store = {
     return this._state;
   },
 
-  addPost() {
-    let posts = this._state.profilePage.postsData;
-    let newPost = {
-      id: posts[posts.length - 1].id + 1,
-      post: this._state.profilePage.newPostText,
-      like: 0
-    }
-    posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-
-  addMessage() {
-    let messages = this._state.chatPage.messagesData;
-    let newMessage = {
-      id: messages[messages.length - 1].id + 1,
-      message: this._state.chatPage.newMessageText
-    }
-    messages.push(newMessage);
-    this._state.chatPage.newMessageText = '';
-    this._callSubscriber(this._state);
-  },
-
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
-
-  updateNewMessageText(newText) {
-    this._state.chatPage.newMessageText = newText;
-    this._callSubscriber(this._state);
-  },
-
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let posts = this._state.profilePage.postsData;
+      let newPost = {
+        id: posts[posts.length - 1].id + 1,
+        post: this._state.profilePage.newPostText,
+        like: 0
+      }
+      posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'ADD-MESSAGE') {
+      let messages = this._state.chatPage.messagesData;
+      let newMessage = {
+        id: messages[messages.length - 1].id + 1,
+        message: this._state.chatPage.newMessageText
+      }
+      messages.push(newMessage);
+      this._state.chatPage.newMessageText = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+      this._state.chatPage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
+    }
   }
 }
 
