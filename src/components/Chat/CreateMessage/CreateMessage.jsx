@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/state';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/chatReducer';
 import styles from './CreateMessage.module.css';
 
 export const CreateMessage = ({ newMessageText, dispatch }) => {

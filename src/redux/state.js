@@ -1,8 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
+import profileReducer from './profileReducer';
+import chatReducer from './chatReducer'
 
 let store = {
   _state: {
@@ -52,40 +49,12 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let posts = this._state.profilePage.postsData;
-      let newPost = {
-        id: posts[posts.length - 1].id + 1,
-        post: this._state.profilePage.newPostText,
-        like: 0
-      }
-      posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      let messages = this._state.chatPage.messagesData;
-      let newMessage = {
-        id: messages[messages.length - 1].id + 1,
-        message: this._state.chatPage.newMessageText
-      }
-      messages.push(newMessage);
-      this._state.chatPage.newMessageText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.chatPage.newMessageText = action.newText;
-      this._callSubscriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.chatPage = chatReducer(this._state.chatPage, action);
+    this._callSubscriber(this._state);
   }
 }
 
 window.store = store;
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
-export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
 
 export default store;

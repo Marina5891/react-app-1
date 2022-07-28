@@ -6,7 +6,6 @@ import { Profile } from './components/Profile/Profile';
 import './App.css';
 
 function App({ dispatch, state }) {
-
   return (
     <div className='wrapper'>
       <Header />
@@ -22,7 +21,7 @@ function App({ dispatch, state }) {
             path='/chat/*'
             element={<Chat
               dispatch={dispatch}
-              chatPage={state.chatPage}/>} />
+              chatPage={state.chatPage} />} />
         </Routes>
       </div>
     </div>

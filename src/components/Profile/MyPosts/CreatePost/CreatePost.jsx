@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/state';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profileReducer';
 import styles from './CreatePost.module.css';
 
 export const CreatePost = ({ newPostText, dispatch }) => {
