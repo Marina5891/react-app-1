@@ -1,4 +1,5 @@
 import React, { createRef } from 'react';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/state';
 import styles from './CreatePost.module.css';
 
 export const CreatePost = ({ newPostText, dispatch }) => {
@@ -6,12 +7,12 @@ export const CreatePost = ({ newPostText, dispatch }) => {
   const textAreaValue = createRef();
 
   const createNewPost = () => {
-    dispatch({type: 'ADD-POST'});
+    dispatch(addPostActionCreator());
   }
 
   const onPostChange = () => {
     let text = textAreaValue.current.value;
-    dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+    dispatch(updateNewPostTextActionCreator(text));
   }
 
   return (
