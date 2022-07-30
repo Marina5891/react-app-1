@@ -1,27 +1,23 @@
-import React, { createRef } from 'react';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/chatReducer';
+import React from 'react';
 import styles from './CreateMessage.module.css';
 
-export const CreateMessage = ({ newMessageText, dispatch }) => {
-
-  const textInputValue = createRef();
+export const CreateMessage = (props) => {
 
   const createNewMessage = () => {
-    dispatch(addMessageActionCreator());
+    props.onSendMessage();
   }
 
-  const onMessageChange = () => {
-    let text = textInputValue.current.value;
-    dispatch(updateNewMessageTextActionCreator(text));
+  const changeMessage = (e) => {
+    let text = e.target.value;
+    props.onMessageChange(text)
   }
 
   return (
     <div className={styles.createMessage}>
       <input
         placeholder='Your message...'
-        ref={textInputValue}
-        value={newMessageText}
-        onChange={onMessageChange} />
+        value={props.newMessageText}
+        onChange={changeMessage} />
       <button onClick={createNewMessage}>Send</button>
     </div>
   )

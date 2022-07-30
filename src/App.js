@@ -1,23 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Sidebar } from './components/Sidebar/Sidebar';
-import { Chat } from './components/Chat/Chat';
 import { Profile } from './components/Profile/Profile';
+import ChatContainer from './components/Chat/ChatContainer';
 import './App.css';
 
 function App(props) {
+
   return (
     <div className='wrapper'>
       <Header />
-      {/* <Sidebar state={props.store.getState().users} /> */}
+      <Sidebar sidebar={props.sidebar} />
       <div className='wrapperContent'>
         <Routes>
           <Route
             path='/profile'
-            element={<Profile store={props.store} />} />
+            element={<Profile />} />
           <Route
             path='/chat/*'
-            element={<Chat store={props.store} />} />
+            element={<ChatContainer />} />
         </Routes>
       </div>
     </div>

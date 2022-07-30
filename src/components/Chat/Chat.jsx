@@ -4,18 +4,19 @@ import { CreateMessage } from './CreateMessage/CreateMessage';
 import { Dialogs } from './Dialogs/Dialogs';
 import styles from './Chat.module.css';
 
-export const Chat = ({ chatPage: { dialogsData, messagesData, newMessageText }, dispatch }) => {
+export const Chat = (props) => {
 
   return (
     <div className={styles.chat}>
       <div className={styles.chatItems}>
-        <Dialogs dialogsData={dialogsData} />
+        <Dialogs dialogsData={props.chatPage.dialogsData} />
       </div>
       <div className={styles.messagesItems}>
-        <Messages messagesData={messagesData} />
+        <Messages messagesData={props.chatPage.messagesData} />
         <CreateMessage
-          dispatch={dispatch}
-          newMessageText={newMessageText} />
+          newMessageText={props.chatPage.newMessageText}
+          onMessageChange={props.onMessageChange}
+          onSendMessage={props.onSendMessage} />
       </div>
     </div>
   )
