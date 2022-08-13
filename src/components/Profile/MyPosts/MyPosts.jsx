@@ -3,7 +3,6 @@ import { Post } from './Post/Post';
 import styles from './MyPosts.module.css';
 
 export const MyPosts = (props) => {
-  //debugger
   const posts = props.postsData.map(data =>
     <Post post={data.post} like={data.like} key={data.id} />)
 

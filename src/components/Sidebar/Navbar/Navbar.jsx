@@ -18,6 +18,11 @@ export const Navbar = () => {
         </li>
         <li className={styles.navbarItem}><a>News</a></li>
         <li className={styles.navbarItem}><a>Music</a></li>
+        <li className={styles.navbarItem}>
+          <NavLink
+            to='/users' className={setActive}>
+            Find friends</NavLink>
+        </li>
         <li className={styles.navbarItem}><a>Settings</a></li>
       </ul>
     </nav>

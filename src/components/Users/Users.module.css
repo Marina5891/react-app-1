@@ -1,0 +1,64 @@
+.users {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+  gap: 20px;
+
+}
+
+.userItem {
+  max-width: 500px;
+  height: 100px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #e6e8ea;
+  display: flex;
+  align-items: flex-end;
+}
+
+.userItem .userAvatar {
+  width: 62px;
+  height: 62px;
+  background-color: #fff;
+  border: 2px solid #ff3c6b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.userItem span>img {
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+.userDescription {
+  margin-right: auto;
+}
+
+.userDescription span:first-child {
+  font-weight: 700;
+  color: #1f2937;
+  display: block;
+  align-self: center;
+  margin-bottom: 8px;
+}
+
+.userDescription span:last-child {
+  color: #666;
+  font-weight: 500;
+}
+
+.userItem button {
+  display: block;
+  background-color: #ff3c6b;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+}

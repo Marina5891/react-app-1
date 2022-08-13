@@ -1,4 +1,4 @@
-const SHOW_USERS = 'SHOW-USERS';
+const SHOW_USERS = 'SHOW_USERS';
 
 let inisialState = {
     users: [

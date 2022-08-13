@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 }
 
-li.userInfoItem  {
+li.userInfoItem {
   width: 52px;
   height: 52px;
   background-color: #fff;
@@ -16,7 +16,7 @@ li.userInfoItem  {
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
-} 
+}
 
 .userInfoItem>img {
   display: block;
