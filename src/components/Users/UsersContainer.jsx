@@ -1,36 +1,50 @@
 import React from 'react';
-import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalCountPagesAC } from '../../redux/usersReducer';
+import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalCountPagesAC, setIsLoadingSpinnerAC } from '../../redux/usersReducer';
 import { Users } from './Users';
+import { Spinner } from '../common/Spinner';
 import { connect } from 'react-redux';
 import * as axios from 'axios';
 
 export class UsersContainer extends React.Component {
 
   componentDidMount() {
+    this.props.setIsLoadingSpinner(true);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
       .then(response => {
+        this.props.setIsLoadingSpinner(false);
         this.props.setUsers(response.data.items);
         this.props.setTotalCountPages(response.data.totalCount)
       })
   }
 
   onPageChange = (pageNumber) => {
+    this.props.setIsLoadingSpinner(true);
     this.props.setCurrentPage(pageNumber);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-      .then(response => this.props.setUsers(response.data.items))
+      .then(response => {
+        this.props.setIsLoadingSpinner(false);
+        this.props.setUsers(response.data.items);
+      })
+    
   }
 
   render() {
     return (
-      <Users
-        totalCountPages={this.props.totalCountPages}
-        currentPage={this.props.currentPage}
-        onPageChange={this.onPageChange}
-        pageSize={this.props.pageSize}
-        users={this.props.users}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
-      />
+      <>
+        {this.props.isLoading ? <Spinner /> :
+          <Users
+            totalCountPages={this.props.totalCountPages}
+            currentPage={this.props.currentPage}
+            onPageChange={this.onPageChange}
+            pageSize={this.props.pageSize}
+            users={this.props.users}
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+        />}
+        
+        
+      </>
+      
     )
   }
 }
@@ -40,7 +54,8 @@ const mapStateToProps = (state) => {
     users: state.usersPage.users,
     currentPage: state.usersPage.currentPage,
     totalCountPages: state.usersPage.totalCountPages,
-    pageSize: state.usersPage.pageSize
+    pageSize: state.usersPage.pageSize,
+    isLoading: state.usersPage.isLoading
   }
 }
 
@@ -60,6 +75,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setTotalCountPages: (totalCount) => {
       dispatch(setTotalCountPagesAC(totalCount))
+    },
+    setIsLoadingSpinner: (isLoading) => {
+      dispatch(setIsLoadingSpinnerAC(isLoading))
     }
   }
 }
