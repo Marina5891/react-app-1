@@ -14,9 +14,11 @@ function App(props) {
       <Sidebar sidebar={props.sidebar} />
       <div className='wrapperContent'>
         <Routes>
-          <Route
-            path='/profile/*'
-            element={<ProfileContainer />} />
+          <Route path='profile' element={<ProfileContainer />}>
+            <Route
+              path=':userId'
+              element={<ProfileContainer />} />
+          </Route>
           <Route
             path='/chat/*'
             element={<ChatContainer />} />

@@ -23,7 +23,7 @@ export const ProfileInfo = (props) => {
 
         <div className={styles.description}>
           <h5>{props.profile.fullName}</h5>
-          <p>{props.profile.contacts.github}</p>
+          <p>{props.profile.aboutMe}</p>
         </div>
       </div>
     </div>

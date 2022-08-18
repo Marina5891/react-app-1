@@ -16,7 +16,7 @@
   align-items: flex-end;
 }
 
-.userItem .userAvatar {
+.userItem .userAvatar a {
   width: 62px;
   height: 62px;
   background-color: #fff;
@@ -28,7 +28,7 @@
   margin-right: 15px;
 }
 
-.userItem span>img {
+.userItem span img {
   display: inline-block;
   width: 52px;
   height: 52px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Users.module.css';
 import userImage from '../../assets/images/user.png';
 
@@ -30,11 +31,14 @@ export const Users = (props) => {
         }
       </div>
       <ul className={styles.users}>
-        {props.users.map(user => {
+        {props.users.map((user, i) => {
           return (
-            <li key={user.id} className={styles.userItem}>
+            <li key={i} className={styles.userItem}>
               <span className={styles.userAvatar}>
-                <img src={user.photos.small !== null ? user.photos.small : userImage} />
+                <Link to={`/profile/${user.id}`}>
+                  <img src={user.photos.small !== null ? user.photos.small : userImage} />
+                </Link>
+
               </span>
               <p className={styles.userDescription}>
                 <span>{user.name}</span>
