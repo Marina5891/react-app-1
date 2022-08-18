@@ -1,5 +1,5 @@
 import React from 'react';
-import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalCountPagesAC, setIsLoadingSpinnerAC } from '../../redux/usersReducer';
+import { follow, unfollow, setUsers, setCurrentPage, setTotalCountPages, setIsLoadingSpinner } from '../../redux/usersReducer';
 import { Users } from './Users';
 import { Spinner } from '../common/Spinner';
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ export class UsersContainer extends React.Component {
         this.props.setIsLoadingSpinner(false);
         this.props.setUsers(response.data.items);
       })
-    
+
   }
 
   render() {
@@ -40,11 +40,11 @@ export class UsersContainer extends React.Component {
             users={this.props.users}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
-        />}
-        
-        
+          />}
+
+
       </>
-      
+
     )
   }
 }
@@ -59,7 +59,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+/* const mapDispatchToProps = (dispatch) => {
   return {
     follow: (userId) => {
       dispatch(followAC(userId))
@@ -80,6 +80,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setIsLoadingSpinnerAC(isLoading))
     }
   }
-}
+} */
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalCountPages, setIsLoadingSpinner })(UsersContainer);

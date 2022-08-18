@@ -4,6 +4,7 @@
   border-radius: 15px;
   box-shadow: 0 0 5px #e6e8ea;
   padding: 20px;
+  padding-bottom: 0;
   margin: 0 auto 20px;
 }
 
@@ -15,7 +16,37 @@
   width: 100%;
 }
 
-.description {
+.aboutUser {
   padding: 10px;
-  background-color: antiquewhite;
+  display: flex;
+}
+
+.avatar {
+  transform: translate(10px, -40px);
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+}
+
+.description {
+  margin-left: 30px;
+}
+
+.description h5 {
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }

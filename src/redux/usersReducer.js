@@ -50,7 +50,7 @@ const usersReducer = (state = inisialState, action) => {
         ...state,
         totalCountPages: action.totalCount
       }
-    case SET_IS_LOADING_SPINNER: 
+    case SET_IS_LOADING_SPINNER:
       return {
         ...state,
         isLoading: action.isLoading
@@ -60,11 +60,11 @@ const usersReducer = (state = inisialState, action) => {
   }
 }
 
-export const followAC = (userId) => ({ type: FOLLOW, userId });
-export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
-export const setUsersAC = (users) => ({ type: SET_USERS, users });
-export const setCurrentPageAC = (pageNumber) => ({ type: SET_CURRENT_PAGE, pageNumber });
-export const setTotalCountPagesAC = (totalCount) => ({ type: SET_TOTAL_COUNT_PAGES, totalCount });
-export const setIsLoadingSpinnerAC = (isLoading) => ({ type: SET_IS_LOADING_SPINNER, isLoading });
+export const follow = (userId) => ({ type: FOLLOW, userId });
+export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
+export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setCurrentPage = (pageNumber) => ({ type: SET_CURRENT_PAGE, pageNumber });
+export const setTotalCountPages = (totalCount) => ({ type: SET_TOTAL_COUNT_PAGES, totalCount })
+export const setIsLoadingSpinner = (isLoading) => ({ type: SET_IS_LOADING_SPINNER, isLoading })
 
 export default usersReducer;

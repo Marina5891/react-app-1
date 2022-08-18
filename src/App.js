@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Sidebar } from './components/Sidebar/Sidebar';
-import { Profile } from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import ChatContainer from './components/Chat/ChatContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import './App.css';
@@ -15,8 +15,8 @@ function App(props) {
       <div className='wrapperContent'>
         <Routes>
           <Route
-            path='/profile'
-            element={<Profile />} />
+            path='/profile/*'
+            element={<ProfileContainer />} />
           <Route
             path='/chat/*'
             element={<ChatContainer />} />
