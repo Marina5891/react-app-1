@@ -29,7 +29,6 @@ let mapStateToProps = (state) => ({
 
 let WithRouterComponent = (props) => {
   const params = useParams();
-  console.log(props)
   return (
     <ProfileContainer
       {...props}
