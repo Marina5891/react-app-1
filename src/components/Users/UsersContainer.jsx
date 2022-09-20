@@ -9,7 +9,9 @@ export class UsersContainer extends React.Component {
 
   componentDidMount() {
     this.props.setIsLoadingSpinner(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+      withCredentials: true
+    })
       .then(response => {
         this.props.setIsLoadingSpinner(false);
         this.props.setUsers(response.data.items);
@@ -20,7 +22,9 @@ export class UsersContainer extends React.Component {
   onPageChange = (pageNumber) => {
     this.props.setIsLoadingSpinner(true);
     this.props.setCurrentPage(pageNumber);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+      withCredentials: true
+    })
       .then(response => {
         this.props.setIsLoadingSpinner(false);
         this.props.setUsers(response.data.items);

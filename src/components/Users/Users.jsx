@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Users.module.css';
 import userImage from '../../assets/images/user.png';
+import * as axios from 'axios';
 
 export const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCountPages / props.pageSize);
@@ -46,8 +47,29 @@ export const Users = (props) => {
               </p>
               {
                 user.followed
-                  ? <button onClick={() => { props.follow(user.id) }}>Unfollow</button>
-                  : <button onClick={() => { props.unfollow(user.id) }}>Follow</button>
+                  ? <button onClick={() => {
+                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                      withCredentials: true,
+                      headers: {
+                        'API-KEY': '51ae7718-5f14-4063-acc9-b5a2cefc043c'
+                      }
+                    })
+                    .then(response => {
+                      props.unfollow(user.id)
+                    })
+                    
+                  }}>Unfollow</button>
+                  : <button onClick={() => {
+                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                      withCredentials: true,
+                      headers: {
+                        'API-KEY': '51ae7718-5f14-4063-acc9-b5a2cefc043c'
+                      }
+                    })
+                    .then(response => {
+                      props.follow(user.id)
+                    })
+                  }}>Follow</button>
               }
             </li>
           )
